@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'django_filters',
     'crispy_forms',
     'website',
+    'bootstrapform',
+
+
 
 
 ]

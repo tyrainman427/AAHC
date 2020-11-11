@@ -4,12 +4,17 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 from .forms import DocumentForm
+from .filters import ClientFilter
 
 # Create your views here.
 class ClientList(ListView):
     model = Client
-    queryset = Client.objects.all()
     template_name = 'clients/clients_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = ClientFilter(self.request.GET, queryset=self.get_queryset())
+        return context
 
 class ClientCreateView(CreateView):
     model = Client

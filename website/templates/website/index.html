@@ -1,0 +1,143 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class=" js no-touch">
+
+<head>
+  <title>All About Healthcare</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600|Raleway:600,300|Josefin+Slab:400,700,600italic,600,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/slick-team-slider.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/mycss.css' %}">
+
+</head>
+
+<body>
+
+
+  <div class="main-navigation navbar-fixed-top">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}"">AAHC</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#banner">Home</a></li>
+            <li><a href="#service">Services</a></li>
+            <li><a href="#portfolio">Staff</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#location">Locations</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="/application/" class="external" class="#application">Careers</a></li>
+            {% if employee.is_superuser %}
+            <li><a href="{% url 'employee:home' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'employee:index' %}">Login</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  {% block body %}
+
+  {% endblock%}
+
+
+
+  <footer class="footer section-padding">
+    <div class="container-fluid" style="background-color:#337ab7">
+      <div class="row">
+
+        <div class="col-md-4 text-center wow zoomIn section-padding">
+          <div style="visibility: visible; animation-name: zoomIn;">
+            <div class="">
+              <div class="" style="color:white">
+                <br>
+                <p>ALL ABOUT HOME CARE</p>
+                <p>1224 Mill St Bldg B</p>
+                <p>East Berlin CT 06023</p>
+                <p>Contact Us 860-348-8936</p>
+                <p>Fax: 860-828-2004</p>
+                <br>
+                <br>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 text-center wow zoomIn">
+          <div style="visibility: visible; animation-name: zoomIn;">
+            <h3 style="color:white;">Follow us on</h3>
+            <div class="footer_social">
+              <ul>
+                <li><a class="f_facebook" href="https://www.facebook.com/AAHCSERVICES/"><i class="fa fa-facebook"></i></a></li>
+                <!-- <li><a class="f_twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="f_google" href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a class="f_linkedin" href="#"><i class="fa fa-linkedin"></i></a></li> -->
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-4" style="color:white;">
+          <br>
+          <ul>
+            <li><a href="#banner" style="color:white;">Back to top</a></li>
+            <li><a href="#service" style="color:white;">Services</a></li>
+            <li><a href="#portfolio" style="color:white;">Staff</a></li>
+            <li><a href="#about" style="color:white;">About Us</a></li>
+            <li><a href="#location" style="color:white;">Locations</a></li>
+            <li><a href="#contact" style="color:white;">Contact Us</a></li>
+          </ul>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="credits text-center">
+        <p>
+          Designed by <a href="https://bootstrapmade.com/"></a><a href="http://silvercityuprising.org" style="color:white;">Ty Rainey</a></p>
+          <p>Logo by <a href="https://www.facebook.com/LiveCityPromo/" style="color:white;">LiveCity</a></p><p>© Copyright, All Rights Reserved. </p>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'contactform/contactform.js' %}"></script>
+  <!-- Calling jquery first -->
+  <script language="JavaScript" type="text/javascript" src="{% static 'scripts/jquery.js' %}"></script>
+  <script language="JavaScript" type="text/javascript" src="{% static 'scripts/bootstrap.min.js' %}"></script>
+  <!-- Carousel -->
+  <script language="JavaScript" type="text/javascript">
+  $(document).ready(function(){
+    $('.carousel').carousel({
+      interval: 2500
+    })
+  });
+  </script>
+
+
+
+  </body>
+
+  </html>

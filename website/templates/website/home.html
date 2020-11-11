@@ -1,0 +1,309 @@
+{% extends 'website/index.html' %}
+{% load static %}
+
+{% block body %}
+  <!--BANNER START-->
+  <div id="banner" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="jumbotron">
+          <img style="width:100%" src="{% static 'img/allabouthomecare.png' %}">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--BANNER END-->
+
+  <!--CTA1 START-->
+  <div class="cta-1">
+    <div class="container">
+      <div class="row text-center white">
+        <h1 class="cta-title">Let us treat your Family like our Family!!</h1>
+        <p class="cta-sub-title">Give us a call! 1-860-348-8936</p>
+      </div>
+    </div>
+  </div>
+  <!--CTA1 END-->
+
+  <div class="container-fluid">
+    <div id="carousel">
+      <div class="rows">
+        <div class="carousel-contaier col-l-12">
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Wrapper for carousel items -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="{% static 'images/banner.jpg' %}" alt="First Slide">
+                <div class="carousel-caption">
+
+                  <!--  <h3>Let us take care of your loved one!</h3> -->
+                </div>
+              </div>
+              <div class="item">
+                <img src="{% static 'images/banner1.jpg' %}" alt="Second Slide">
+              </div>
+              <div class="item">
+                <img src="{% static 'images/banner2.jpg' %}" alt="Third Slide">
+              </div>
+              <div class="item">
+                <img src="{% static 'img/disabilities.jpg' %}" alt="Fourth Slide">
+              </div>
+              <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!--SERVICE START-->
+  <div id="service" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="page-title text-center">
+          <h1 class="headers" id="header">Available Services</h1>
+          <hr class="pg-titl-bdr-btm">
+        </div>
+        <div class="col-md-4">
+          <ul class="list-group" id="list_groupItem">
+            <li class="list-group-item"><h3 class="text-center">Companions</h3>
+
+              <ul class="myFont">
+                <li>Accompany to appointments</li>
+                <li>Participate in any games or crafts</li>
+                <li>Visit family or friends</li>
+                <li>Help with scheduling appointments for health or beauty</li>
+                <li>Transportation Services</li>
+                <li>Private and Personal Care</li>
+                <li>Behavioral Health</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <ul class="list-group">
+            <li class="list-group-item"><h3 class="text-center">Homemakers</h3>
+
+              <ul class="myFont">
+                <li>Daily Meal Preparation</li>
+                <li>Grocery Shopping</li>
+                <li>Run errands(laundry, ironing, pick up medications)</li>
+                <li>Light Housekeeping(Change linens, sweep, mop, dish washing)</li>
+                <li>Alzheimer's Care</li>
+                <li>Live-In Companions</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <ul class="list-group">
+            <li class="list-group-item"><h3 class="text-center">Personal Care Assistants</h3>
+
+              <ul class="myFont">
+                <li>Wake up and sleep assistance</li>
+                <li>Walk Assistance and Transferring</li>
+                <li>Assist with Dressing</li>
+                <li>Medication Reminders</li>
+                <li>Assist in Bathing</li>
+                <li>Special Needs Care</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!--SERVICE END-->
+
+  <div id="portfolio">
+    <div class="container">
+      <div class="page-title text-center">
+        <h1 class="headers">List of Professionals</h1>
+        <hr class="pg-titl-bdr-btm">
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul id="portfolio-flters">
+            <!--  <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">All</li>
+            <li data-filter=".filter-app">Clinical Psychologists</li>
+            <li data-filter=".filter-card">Registered Nurses</li>
+            <li data-filter=".filter-logo">Licensed Nurses Aid</li>
+            <li data-filter=".filter-web">Personal Care Assistants</li>
+            <li data-filter=".filter-web">Recovery Care Assistants</li> -->
+          </ul>
+        </div>
+      </div>
+
+      <div class="row" id="portfolio-wrapper">
+        <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+          <!--  <a href="">  -->
+          <img src="{% static 'images/consulting.jpg' %}" alt="Clinical Psychologist" class="img-responsive center-block">
+          <div class="details">
+            <h4>Clinical Psychologist</h4>
+
+
+          </div>
+          <!--  </a> -->
+        </div>
+
+        <div class="col-lg-3 col-md-6 portfolio-item filter-card">
+          <img src="{% static 'images/food.jpg' %}" alt="Personal Care Assistants" class="img-responsive center-block">
+          <div class="details">
+            <h4>Personal Care Assistance</h4>
+
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
+
+          <img src="{% static 'images/help3.png' %}" alt="" class="img-responsive center-block">
+          <div class="details">
+            <h4>Recovery Care Assistants</h4>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+
+          <img src="{% static 'images/nurse.png' %}" alt="" class="img-responsive center-block">
+          <div class="details">
+            <h4>Licensed Nurses Aides</h4>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--About START-->
+
+
+    <div id="about" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="page-title text-center">
+            <h1 class="headers">About AAHC</h1>
+            <hr class="pg-titl-bdr-btm">
+            <div class="pgraph">
+              <div class="col-md-8" style="line-height:1">
+
+                <p>AAHC assists you with anything from walks in the park to staying in your home.  We provide professional compassionate care for yourself or your loved one. We offer full range of hourly as well as live-in services. 24hr services to help start and stay on the best manageable path for your optimal health.</p>
+
+                <p>AAHC provides home-based private care providers to assist with necessary, daily activities.
+                  We understand that your home is filled with memories and your home is a place where children, grandchildren and friends come to enjoy precious moments. There is no other place you'd rather be, and AAHC want to make sure you spend your time safe and comfortable.</p>
+
+                  <p>We are currently taking new clients/patients to provide families and individuals with the best care. We start by discussing your needs and wishes with you and family members. AAHC works with you and your family to put a plan together to take care of your needs. To speak with a staff member or make an appointment please call 860-348-8936 Call us today!</p>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-4">
+
+              <img src="{% static 'images/bless.jpg' %}" alt="About Section" class="img-responsive img-rounded">
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!--About END-->
+  <div id="location" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="page-title text-center">
+          <h1 class="headers">Service Areas</h1>
+          <hr class="pg-titl-bdr-btm">
+          <div class="thumbnail">
+            <img src="{% static 'images/connecticut.jpg' %}" alt="Connecticut MAp" style="width:100%">
+            <div class="caption">
+              <p class="h3">Avon, Beacon Falls, Berlin, Bethany, Bloomfield, Bolton, Bridgeport, Bristol, Burlington, Canton, Cheshire, Coventry, Cromwell, East Granby, East Hartford, East Windsor, Ellington, Enfield, Farmington, Glastonbury, Granby, Hamden, Hartford, Manchester, Marlbourgh, Meriden, Middlebury, Middlefield, Middletown, Naugatuck, New Britain, New Haven, Newington, Plinville, Plymouth, Prospect, Rocky Hill, Simsbury, Somers, Southington, South Windsor, Stafford, Suffield, Thomaston, Tolland, Vernon, Wallingford, Waterbury, Watertown, West Hartford, Wethersfield, Willington, Windsor, Wolcott</p>
+              <!-- <div class="containerd-flex flex-wrap">
+              <div class="row">
+              <div class="col-6">
+              <ul>
+              <p>Avon</p>
+              <p>Beacon Falls</p>
+              <p>Berlin</p>
+              <p>Bethany</p>
+              <p>Bloomfield</p>
+              <p>Bolton</p>
+            </ul>
+          </div>
+          <div class="col-6">
+          <ul>
+          <p>Bridgeport</p>
+          <p>Bristol</p>
+          <p>Burlington</p>
+          <p>Canton</p>
+          <p>Cheshire</p>
+          <p>Coventry</p>
+        </ul>
+      </div>
+    </div>
+  </div> -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--CTA2 START-->
+
+<!--CTA2 END-->
+<!--CONTACT START -->
+<div id="contact" class="section-padding">
+  <div class="col-lg-12"></div>
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <h1 class="headers">Contact Us</h1>
+        <hr class="pg-titl-bdr-btm">
+
+        <div class="cognito">
+          <script src="https://services.cognitoforms.com/s/FZtvNymj60GJpOyYuyPWIQ"></script>
+          <script>Cognito.load("forms", { id: "2" });</script>
+          <style>.cognito .c-forms-form{margin:0 auto;}</style>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--CONTACT END-->
+<div class="cta-1">
+  <div class="container">
+    <div class="row text-center white">
+      <h1 class="cta-title">We are open 24 hours a day, 7 days a week</h1>
+    </div>
+  </div>
+</div>
+<br>
+<div class="section-padding mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="card col-sm-6" style="width: 70rem;">
+        <img src="{% static 'images/Screen%20Shot%202018-11-09%20at%207.35.40%20PM.png' %}" alt="About Section" class="img-responsive img-rounded">
+      </div>
+      <div class="card col-sm-6" style="width: 10rem;">
+        <img class="card-img-top" src="{% static 'images/Gold_Seal_Clipped_final_.JPG' %}" alt="Card image cap">
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<br>
+
+{% endblock %}

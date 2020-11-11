@@ -1,0 +1,42 @@
+{% extends 'employee/base.html' %}
+{% load static %}
+
+{% block body  %}
+
+  <!--Form START-->
+    <br>
+<div class="container">
+  <div class="row">
+    <img src="{% static 'img/hiring.jpg' %}" style="height:200px;width:100%;" class="img-fluid" alt="Teamwork image" id="hiring-img">
+
+    <div class="cta-1">
+  <div class="container">
+    <div class="row">
+      <h1 class="mt-5">Join the Team!</h1>
+    </div>
+  </div>
+</div>
+  </div>
+  <div class="row">
+    <table class="table table-hover">
+  <thead>
+    <th>Current Open Positions</th>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><a href="{% url 'careers' %}">Recovery Assistant</a></th>
+      <td><a href="{% url 'careers' %}">View Job</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="{% url 'adminrec' %}">Administrative Assistant</a></th>
+      <td><a href="{% url 'adminrec' %}">View Job</a></td>
+
+    </tr>
+  </tbody>
+  </table>
+  </div>
+
+</div>
+
+
+{% endblock %}

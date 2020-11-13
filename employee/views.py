@@ -1,4 +1,4 @@
-from .models import Employee, Announcement, Application
+from .models import Employee, Announcement
 from django.shortcuts import get_object_or_404,redirect, render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import AnnouncementForm,CustomUserCreationForm
@@ -25,7 +25,7 @@ class Announcement(ListView):
 @method_decorator(login_required, name='dispatch')
 class EmployeeList(ListView):
     model = Employee
-    queryset = Employee.objects.all()
+    queryset = Employee.objects.filter(is_active=True)
     template_name = 'employee/employee-list.html'
 
     def get_queryset(self):
@@ -56,8 +56,29 @@ class EmployeeDetailView(DetailView):
 
 @method_decorator(login_required, name='dispatch')
 class EmployeeCreateView(CreateView):
-    model = Application
-    fields = '__all__'
+    model = Employee
+    fields = ['first_name','last_name','address','email','phone',
+    'dob','city','state','zip','us_citizen','over18',
+    'been_convicted','explain_conviction','military_service','branch',
+    'veteran','position_applying','how_Did_You_Hear_About_Position',
+    'expected_rate','expect_weekly_rate','date_available','resume','social_security',
+    'gov_id','high_school','last_year_completed','graduated','college',
+    'last_college_Year_completed','major','trade_school','graduated_Trade',
+    'ged','list_skills','name_Of_Employer','job_Title','date_From',
+    'date_To','ok_to_contact','contact_number','reason_for_leaving',
+    'work_any_Day_Any_Hour','work_holidays','got_transportation',
+    'willing_to_travel','monday_from','monday_to','tuesday_from',
+    'tuesday_to','wenesday_from','wenesday_to','thursday_from',
+    'thursday_to','friday_from','friday_to','saturday_from',
+    'saturday_to','sunday_from','sunday_to','emergency_contact_name',
+    'emergency_contact_number','disclaimer'
+    ]
+
+@login_required(login_url='/accounts/login/')
+def application(request):
+    employee = Employee.objects.filter(is_active=False)
+    context = {'employee':employee}
+    return render(request,'employee/applicants.html',context)
 
 @login_required(login_url='/accounts/login/')
 def get_form(request):
@@ -71,7 +92,7 @@ def get_form(request):
             message = form.cleaned_data['message']
             ann = Announcement(title=title,message=message,)
             form.save()
-            return HttpResponseRedirect('/announcements/')
+            return HttpResponseRedirect('/portal/announcements/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -91,10 +112,7 @@ class AnnouncementDetailView(DetailView):
 @method_decorator(login_required, name='dispatch')
 class EmployeeUpdateView(UpdateView):
     model = Employee
-    fields = ['first_name', 'last_name','address','city',
-    'state','zip','phone_number','email_address','title',
-    'department','work_location','supervisor','emergency_contact_name','emergency_contact_number',
-    ]
+    fields = '__all__'
 
     def get_absolute_url(self):
         return reverse('employee:Employee_detail', args=[str(self.id)])

@@ -33,22 +33,6 @@ class Client(models.Model):
     def get_absolute_url(self):
         return reverse('clients:file_detail', args=[str(self.id)])
 
-class UploadFile(models.Model):
-    client = models.ForeignKey(Client,on_delete=models.CASCADE, related_name='uploads')
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, related_name='file')
-    title = models.CharField(max_length=50)
-    date_created = models.CharField(max_length=50)
-    file = models.FileField()
-
-    def __str__(self):
-        return f"{self.title}"
-
-    def get_object(self):
-        id_ = self.kwargs.get("id")
-        return get_object_or_404(UploadFile, id=id_)
-
-    def get_absolute_url(self):
-        return reverse('clients:clients_list', args=[str(self.id)])
 
 class Document(models.Model):
     client = models.ForeignKey(Client,on_delete=models.CASCADE, related_name='documents')

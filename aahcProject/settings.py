@@ -79,7 +79,8 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
-                'employee.context_processors.announcements'
+                'employee.context_processors.announcements',
+                'employee.context_processors.employees'
             ],
             'debug': DEBUG,
         },

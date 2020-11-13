@@ -94,15 +94,11 @@ class Employee(models.Model):
     sunday_to=models.DateField(null=True,blank=True)
     disclaimer= models.BooleanField(default=False,blank=True)
 
-
-
     def __str__(self):
         return self.first_name
 
     def get_absolute_url(self):
         return reverse('employee:employee_detail', args=[str(self.id)])
-
-
 
 class Announcement(models.Model):
     title = models.CharField(max_length=200)

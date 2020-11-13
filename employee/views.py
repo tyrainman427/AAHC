@@ -54,7 +54,7 @@ class EmployeeDetailView(DetailView):
         id_ = self.kwargs.get("id")
         return get_object_or_404(Employee, id=id_)
 
-@method_decorator(login_required, name='dispatch')
+# @method_decorator(login_required, name='dispatch')
 class EmployeeCreateView(CreateView):
     model = Employee
     fields = ['first_name','last_name','address','email','phone',

@@ -34,7 +34,7 @@ class Employee(models.Model):
     supervisor = models.CharField(max_length=50)
     emergency_contact_name = models.CharField(max_length=50)
     emergency_contact_number = models.CharField(max_length=50)
-    salary = models.FloatField(default=0.00, blank=True)
+    salary = models.FloatField(default=0.00, blank=True,null=True)
     date_created = models.DateTimeField(auto_now_add=True)
     # exclude below
     salary= models.FloatField(blank=True)
@@ -108,5 +108,3 @@ class Announcement(models.Model):
 
     def __str__(self):
         return self.title
-
-    

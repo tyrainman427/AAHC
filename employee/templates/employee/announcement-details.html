@@ -2,13 +2,10 @@
 
 {% block body %}
 
-
-
   <h1>Announcement Details for {{announcements.date_created}}</h1>
 
   <p><strong>Title:</strong>{{announcements.title }}</p> <!-- author detail link not yet defined -->
   <p><strong>Message:</strong> {{ announcements.message }}</p>
-
 
     <a class="btn btn-secondary btn-sm" href="{% url 'employee:announcements' %}" type="button" name="button">Back</a>
 {% endblock %}

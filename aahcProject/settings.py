@@ -96,10 +96,23 @@ SESSION_COOKIE_SECURE = False
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'dldkcvictoql8',
+
+        'USER': 'pjqcykfsewynbt',
+
+        'PASSWORD': '37ffeef87efeeb4fc639b4a2b5525b04b6c0a28824759f303e201fdb9944d104',
+
+        'HOST': 'ec2-18-210-180-94.compute-1.amazonaws.com',
+
+        'PORT': '5432',
+
     }
+
 }
 
 AUTH_PASSWORD_VALIDATORS = [

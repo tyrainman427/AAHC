@@ -11,6 +11,10 @@ django-storages==1.10.1
 django-widget-tweaks==1.4.8
 djangorestframework==3.12.2
 et-xmlfile==1.0.1
+<<<<<<< HEAD
+=======
+gunicorn==20.0.4
+>>>>>>> 92da1529a316a14ca77307eec7134b8f5412e97d
 jdcal==1.4.1
 jmespath==0.10.0
 openpyxl==3.0.5

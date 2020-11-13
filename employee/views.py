@@ -61,7 +61,7 @@ class EmployeeCreateView(CreateView):
     'dob','city','state','zip','us_citizen','over18',
     'been_convicted','explain_conviction','military_service','branch',
     'veteran','position_applying','how_Did_You_Hear_About_Position',
-    'expected_rate','expect_weekly_rate','date_available','resume','social_security',
+    'expected_rate','expect_weekly_rate','salary','date_available','resume','social_security',
     'gov_id','high_school','last_year_completed','graduated','college',
     'last_college_Year_completed','major','trade_school','graduated_Trade',
     'ged','list_skills','name_Of_Employer','job_Title','date_From',
@@ -73,6 +73,7 @@ class EmployeeCreateView(CreateView):
     'saturday_to','sunday_from','sunday_to','emergency_contact_name',
     'emergency_contact_number','disclaimer'
     ]
+    
 
 @login_required(login_url='/accounts/login/')
 def application(request):

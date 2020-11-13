@@ -2,10 +2,23 @@
 
 {% block body %}
 
-  <h1>Announcement Details for {{announcements.date_created}}</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
 
-  <p><strong>Title:</strong>{{announcements.title }}</p> <!-- author detail link not yet defined -->
-  <p><strong>Message:</strong> {{ announcements.message }}</p>
+    </div>
+    <div class="col-6">
+    <h1 class="text-center mt-5 mb-5">Announcement Details for {{announcement.date_created}}</h1>
 
-    <a class="btn btn-secondary btn-sm" href="{% url 'employee:announcements' %}" type="button" name="button">Back</a>
+    <p><strong>Title:</strong>{{announcement.title }}</p> <!-- author detail link not yet defined -->
+    <p><strong>Message:</strong> {{ announcement.message }}</p>
+
+      <a class="btn btn-secondary btn-sm" href="{% url 'employee:announcements' %}" type="button" name="button">Back</a>
+  </div>
+  <div class="col-3">
+
+  </div>
+  </div>
+</div>
+
 {% endblock %}

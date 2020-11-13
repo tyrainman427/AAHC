@@ -1,4 +1,4 @@
-from .models import Employee, Announcement
+from .models import *
 from django.shortcuts import get_object_or_404,redirect, render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import AnnouncementForm,CustomUserCreationForm
@@ -103,7 +103,10 @@ def get_form(request):
 @method_decorator(login_required, name='dispatch')
 class AnnouncementDetailView(DetailView):
     template_name = "employee/announcement-details.html"
-    announcements = Announce.objects.all()
+    model = Announce
+
+    def get_absolute_url(self):
+        return reverse('employee:announcement-details', args=[str(self.id)])
 
     def get_object(self):
         id_ = self.kwargs.get("id")

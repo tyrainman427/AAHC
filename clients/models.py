@@ -26,10 +26,6 @@ class Client(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
-    # def get_object(self):
-    #     id_ = self.kwargs.get("id")
-    #     return get_object_or_404(Client, id=id_)
-
     def get_absolute_url(self):
         return reverse('clients:file_detail', args=[str(self.id)])
 

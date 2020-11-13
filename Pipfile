@@ -20,7 +20,7 @@ django-crispy-forms ="*"
 python-decouple = "*"
 django-storages = "*"
 boto3 = "*"
-django-filters = "*"
+django-filter = "*"
 
 
 [dev-packages]

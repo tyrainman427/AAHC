@@ -5,16 +5,35 @@
 <div class="cta-1">
   <div class="container mt-5">
     <div class="row text-center white">
-      <h1 class="cta-title">Join the Team!</h1>
+      <div class="col-md-3">
+
+      </div>
+      <div class="col-md-6">
+        <h1 class="cta-title">Join the Team!</h1>
+
+        <div class="form-group">
+          <form method="POST" enctype="multipart/form-data">
+              <!-- Security token -->
+              {% csrf_token %}
+              <!-- Using the formset -->
+              {{ form|crispy }}
+              <input class="btn btn-primary bt-sm" type="submit" value="Submit">
+              <a class="btn btn-secondary" href="{% url 'employee:application-detail' %}" type="button" name="button">Back</a>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-3">
+
+      </div>
     </div>
   </div>
 </div>
 
-<div class="cognito">
+<!-- <div class="cognito">
   <script src="https://services.cognitoforms.com/s/FZtvNymj60GJpOyYuyPWIQ"></script>
   <script>Cognito.load("forms", { id: "1" });</script>
   <style>.cognito .c-forms-form{margin:0 auto;}</style>
-</div>
+</div> -->
 
 
 {% endblock %}

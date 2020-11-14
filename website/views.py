@@ -10,11 +10,16 @@ def home(request):
     return render(request,'website/home.html',context)
 
 def application(request):
-    application = Application.objects.all()
+    application = Employee.objects.all()
     context = {
     'application':application,
     }
     return render(request,'website/open_positions.html',context)
+
+def application_detail(request,id):
+
+
+    return render(request, 'webiste/application_detail.html')
 
 def career(request):
     return render(request,'website/careers.html')

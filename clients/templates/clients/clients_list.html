@@ -1,4 +1,5 @@
 {% extends 'employee/base.html' %}
+{% load bootstrap %}
 
 {% block body %}
 
@@ -8,7 +9,23 @@
   <div class="row">
 
     <br><br>
-    <a href="{% url 'clients:client-create'%}" style="height:35px;" class="btn btn-secondary btn-sm">Add Client</a>
+    <a href="{% url 'clients:client-create'%}" style="height:35px" class="btn btn-secondary btn-sm">Add Client</a>
+    <div class="container">
+      <button class="btn btn-danger" onclick="showOrHideDiv()">Filter</button>
+    </div>
+
+    <div id="showOrHide">
+    <div class="container">
+      <div class="row" id="filter">
+        <form class="form-inline" method="GET">
+          {% csrf_token %}
+          {{ filter.form|bootstrap }}
+          <button type="submit" class="btn btn-primary ml-3">Search</button>
+        </form>
+      </div>
+    </div>
+    </div>
+
     <table class="table table-hover table-sm mt-4" id="table">
       <thead>
         <tr>
@@ -22,7 +39,7 @@
         </tr>
       </thead>
       <tbody>
-        {% for mem in object_list %}
+        {% for mem in filter.qs %}
         <tr>
           <td><a style="color:black" href="{% url 'clients:file_detail' mem.id %}">{{mem.first_name}}</a></td>
           <td><a style="color:black" href="{% url 'clients:file_detail' mem.id %}">{{mem.last_name}}</a></td>
@@ -39,4 +56,17 @@
   </div>
 </div>
 
+
+<script>
+  document.getElementById("showOrHide").style.display  = "none";
+
+    function showOrHideDiv() {
+        var v = document.getElementById("showOrHide");
+        if (v.style.display === "none") {
+            v.style.display = "block";
+        } else {
+            v.style.display = "none";
+        }
+    }
+</script>
 {% endblock %}

@@ -54,6 +54,15 @@ class EmployeeDetailView(DetailView):
         id_ = self.kwargs.get("id")
         return get_object_or_404(Employee, id=id_)
 
+@method_decorator(login_required, name='dispatch')
+class ApplicantDetailView(DetailView):
+    template_name = "employee/applicant_detail.html"
+    member = Employee.objects.filter(is_active=False)
+
+    def get_object(self):
+        id_ = self.kwargs.get("id")
+        return get_object_or_404(Employee, id=id_)
+
 # @method_decorator(login_required, name='dispatch')
 class EmployeeCreateView(CreateView):
     model = Employee
@@ -73,7 +82,7 @@ class EmployeeCreateView(CreateView):
     'saturday_to','sunday_from','sunday_to','emergency_contact_name',
     'emergency_contact_number','disclaimer'
     ]
-    
+
 
 @login_required(login_url='/accounts/login/')
 def application(request):

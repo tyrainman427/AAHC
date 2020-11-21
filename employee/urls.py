@@ -1,11 +1,12 @@
 from django.urls import path
-from .views import register,application,EmployeeList, EmployeeDetailView, EmployeeCreateView, EmployeeUpdateView, EmployeeDeleteView,Portal,Announcement,get_form,AnnouncementDetailView
+from .views import register,application,ApplicantDetailView,EmployeeList, EmployeeDetailView, EmployeeCreateView, EmployeeUpdateView, EmployeeDeleteView,Portal,Announcement,get_form,AnnouncementDetailView
 
 app_name = 'employee'
 
 urlpatterns = [
     path('', Portal.as_view(), name='index'),
     path('applications/', application, name='applicants'),
+    path('applications/<int:id>', ApplicantDetailView.as_view(), name='applicant_detail'),
     path('announcements/', Announcement.as_view(), name='announcements'),
     path('announcements/<int:id>/', AnnouncementDetailView.as_view(), name='announcement-details'),
     path('employee/', EmployeeList.as_view(), name='employee-list'),

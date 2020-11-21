@@ -1,0 +1,97 @@
+{% extends "employee/base.html" %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <a class="btn btn-warning btn-sm mt-3 mr-2" href="{% url 'employee:employee-update' employee.id %}" type="button" name="button">Edit</a>
+    <a class="btn btn-danger btn-sm mt-3" href="{% url 'employee:employee-delete' pk=employee.id %}" type="button" name="button">Delete</a>
+
+  </div>
+  <h1 class="mt-4 mb-3">Applicant: {{ employee.first_name }} {{ employee.last_name}}</h1>
+  <div class="row">
+    <div class="col-sm-4">
+        <h1>Basic Information</h1>
+        <p><strong>Address:</strong>{{employee.address }}</p> <!-- author detail link not yet defined -->
+        <p><strong>City:</strong> {{ employee.city }}</p>
+        <p><strong>State:</strong> {{ employee.state }}</p>
+        <p><strong>Zip Code:</strong>{{employee.dob }}</p>
+        <p><strong>Phone:</strong> {{ employee.zip }}</p>
+        <p><strong>D.O.B:</strong>{{employee.dob }}</p>
+        <p><strong>Email:</strong> {{ employee.email }}</p>
+        <p><strong>Are you an US citizen?:</strong> {{ employee.email }}</p>
+        <p><strong>Over 18?:</strong> {{ employee.email }}</p>
+        <p><strong>Ever been convicted?:</strong>{{employee.dob }}</p>
+        <p><strong>Explain conviction:</strong>{{employee.dob }}</p>
+        <p><strong>Military Service:</strong>{{employee.dob }}</p>
+        <p><strong>Branch:</strong>{{employee.dob }}</p>
+        <p><strong>Veteran:</strong>{{employee.dob }}</p>
+        <p><strong>Applied Position:</strong>{{employee.dob }}</p>
+        <p><strong>How did you hear about us?:</strong>{{employee.dob }}</p>
+        <p><strong>Expected Rate:</strong>{{employee.dob }}</p>
+        <p><strong>Expected Weekly Rate:</strong>{{employee.dob }}</p>
+        <p><strong>Date Available:</strong>{{employee.dob }}</p>
+
+        <p><strong>Resume:</strong>{{employee.dob }}</p>
+        <p><strong>Social Security:</strong>{{employee.dob }}</p>
+        <p><strong>Government ID:</strong>{{employee.dob }}</p>
+
+
+          <a class="btn btn-secondary btn-sm" href="{% url 'employee:employee-list' %}" type="button" name="button">Back</a>
+    </div>
+    <div class="col-sm-4">
+      <h1>Education</h1>
+      <p><strong>High School:</strong>{{employee.dob }}</p>
+      <p><strong>Last Yr Completed:</strong>{{employee.dob }}</p>
+      <p><strong>Graduated?:</strong>{{employee.dob }}</p>
+      <p><strong>College::</strong>{{employee.dob }}</p>
+      <p><strong>Last College Yr Completed:</strong>{{employee.dob }}</p>
+      <p><strong>Major:</strong>{{employee.dob }}</p>
+      <p><strong>Trade School:</strong>{{employee.dob }}</p>
+      <p><strong>Graduated from Trade School:</strong>{{employee.dob }}</p>
+      <p><strong>GED:</strong>{{employee.dob }}</p>
+      <p><strong>List of Skills:</strong>{{employee.dob }}</p>
+      <h1>Employment History</h1>
+      <p><strong>Name of Employer:</strong>{{employee.dob }}</p>
+      <p><strong>Job Title:</strong>{{employee.dob }}</p>
+      <p><strong>Date From:</strong>{{employee.dob }}</p>
+      <p><strong>Date To:</strong>{{employee.dob }}</p>
+      <p><strong>Okay to contact?:</strong>{{employee.dob }}</p>
+      <p><strong>Contact Number:</strong>{{employee.dob }}</p>
+      <p><strong>Reason for Leaving:</strong>{{employee.dob }}</p>
+
+      <p><strong>Salary:</strong>{{employee.salary }}</p> <!-- author detail link not yet defined -->
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Emergency Contact Name:</strong> {{ employee.emergency_contact_name }}</p>
+      <p><strong>Emergency Contact Number:</strong> {{ employee.emergency_contact_number }}</p>
+
+    </div>
+
+    <div class="col-sm-4">
+      <h1>Availability</h1>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <h1>Schedule</h1>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+      <p><strong>Start Date:</strong> {{ employee.date_hired }}</p>
+
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

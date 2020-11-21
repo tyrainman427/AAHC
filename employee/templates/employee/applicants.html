@@ -22,10 +22,10 @@
         <tbody>
           {% for ann in employee %}
           <tr>
-            <td><a class="text-dark" href="{% url 'employee:employee_detail' ann.id %}">{{ann.first_name}}</a></td>
-            <td><a class="text-dark" href="{% url 'employee:employee_detail' ann.id %}">{{ann.last_name}}</a></td>
-            <td><a class="text-dark" href="{% url 'employee:employee_detail' ann.id %}">{{ann.city}}</a></td>
-            <td><a class="text-dark" href="{% url 'employee:employee_detail' ann.id %}">{{ann.state}}</a></td>
+            <td><a class="text-dark" href="{% url 'employee:applicant_detail' ann.id %}">{{ann.first_name}}</a></td>
+            <td><a class="text-dark" href="{% url 'employee:applicant_detail' ann.id %}">{{ann.last_name}}</a></td>
+            <td><a class="text-dark" href="{% url 'employee:applicant_detail' ann.id %}">{{ann.city}}</a></td>
+            <td><a class="text-dark" href="{% url 'employee:applicant_detail' ann.id %}">{{ann.state}}</a></td>
           </a>
           </tr>
           {% endfor  %}

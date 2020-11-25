@@ -156,17 +156,21 @@ def get_form(request):
         form = AnnouncementForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            title = form.cleaned_data['title']
-            message = form.cleaned_data['message']
-            ann = Announcement(title=title,message=message,)
-            form.save()
-            return HttpResponseRedirect('/portal/announcements/')
-
+            try:
+                title = form.cleaned_data['title']
+                message = form.cleaned_data['message']
+                ann = Announcement(title=title,message=message,)
+                form.save()
+                return HttpResponseRedirect(reverse_lazy('employee:announcements'))
+            except:
+                pass
             # if a GET (or any other method) we'll create a blank form
         else:
-            form = AnnouncementForm()
-
             return render(request, 'employee/announcement_form.html', {'form': form})
+    else:
+        form = AnnouncementForm()
+
+        return render(request, 'employee/announcement_form.html', {'form': form})
 
 @method_decorator(login_required, name='dispatch')
 class AnnouncementDetailView(DetailView):

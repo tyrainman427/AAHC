@@ -2,13 +2,64 @@ from .models import *
 from django.shortcuts import get_object_or_404,redirect, render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import AnnouncementForm,CustomUserCreationForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .models import Announcement as Announce
 from django.contrib.auth import login
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+from .utils import Calendar
+from .forms import EventForm
+from django.views import generic
+from datetime import datetime, timedelta
+from django.utils.safestring import mark_safe
+import calendar
+
+class CalendarView(generic.ListView):
+    model = Event
+    template_name = 'employee/event_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        d = get_date(self.request.GET.get('month', None))
+        cal = Calendar(d.year, d.month)
+        html_cal = cal.formatmonth(withyear=True)
+        context['calendar'] = mark_safe(html_cal)
+        context['prev_month'] = prev_month(d)
+        context['next_month'] = next_month(d)
+        return context
+
+def get_date(req_day):
+    if req_day:
+        year, month = (int(x) for x in req_day.split('-'))
+        return date(year, month, day=1)
+    return datetime.today()
+
+def prev_month(d):
+    first = d.replace(day=1)
+    prev_month = first - timedelta(days=1)
+    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
+    return month
+
+def next_month(d):
+    days_in_month = calendar.monthrange(d.year, d.month)[1]
+    last = d.replace(day=days_in_month)
+    next_month = last + timedelta(days=1)
+    month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
+    return month
+
+def event(request, event_id=None):
+    instance = Event()
+    if event_id:
+        instance = get_object_or_404(Event, pk=event_id)
+    else:
+        instance = Event()
+
+    form = EventForm(request.POST or None, instance=instance)
+    if request.POST and form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('employee:calendar'))
+    return render(request, 'employee/event.html', {'form': form})
 
 @method_decorator(login_required, name='dispatch')
 class Portal(ListView):
@@ -48,11 +99,18 @@ class EmployeeList(ListView):
 @method_decorator(login_required, name='dispatch')
 class EmployeeDetailView(DetailView):
     template_name = "employee/employee_detail.html"
-    member = Employee.objects.all()
+    model = Employee
+
+    def get_context_data(self, **kwargs):
+        context = super(EmployeeDetailView, self).get_context_data(**kwargs)
+
+        context['events'] = Event.objects.all()
+        return context
 
     def get_object(self):
         id_ = self.kwargs.get("id")
         return get_object_or_404(Employee, id=id_)
+
 
 @method_decorator(login_required, name='dispatch')
 class ApplicantDetailView(DetailView):
@@ -104,11 +162,11 @@ def get_form(request):
             form.save()
             return HttpResponseRedirect('/portal/announcements/')
 
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = AnnouncementForm()
+            # if a GET (or any other method) we'll create a blank form
+        else:
+            form = AnnouncementForm()
 
-    return render(request, 'employee/announcement_form.html', {'form': form})
+            return render(request, 'employee/announcement_form.html', {'form': form})
 
 @method_decorator(login_required, name='dispatch')
 class AnnouncementDetailView(DetailView):

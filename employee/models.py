@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+import datetime
 from django.urls import reverse
+from django.core.exceptions import ValidationError
+
 
 YEARS_COMPLETED = (
     ("9","9"),
@@ -107,3 +110,16 @@ class Announcement(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+
+    @property
+    def get_html_url(self):
+        url = reverse('cal:event_edit', args=(self.id,))
+        return f'<a href="{url}"> {self.title} </a>'

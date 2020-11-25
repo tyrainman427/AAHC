@@ -34,6 +34,9 @@
       {% endif %}
         {% if user.is_authenticated %}
         <li class="nav-item">
+        <a class="nav-link" href="{% url 'employee:calendar' %}" role="button" href="">Schedule</a>
+        </li>
+        <li class="nav-item">
         <a class="nav-link" href="{% url 'logout' %}" role="button" href="">Logout</a>
         </li>
           <li class="nav-item">

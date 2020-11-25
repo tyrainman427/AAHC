@@ -1,10 +1,13 @@
 from django.urls import path
-from .views import register,application,ApplicantDetailView,EmployeeList, EmployeeDetailView, EmployeeCreateView, EmployeeUpdateView, EmployeeDeleteView,Portal,Announcement,get_form,AnnouncementDetailView
+from .views import register,application,event,CalendarView,ApplicantDetailView,EmployeeList, EmployeeDetailView, EmployeeCreateView, EmployeeUpdateView, EmployeeDeleteView,Portal,Announcement,get_form,AnnouncementDetailView
 
 app_name = 'employee'
 
 urlpatterns = [
     path('', Portal.as_view(), name='index'),
+    path('calendar/', CalendarView.as_view(), name='calendar'),
+    path('event/new/', event, name='event_new'),
+    path('event/edit/<str:event_id>', event, name='event_edit'),
     path('applications/', application, name='applicants'),
     path('applications/<int:id>', ApplicantDetailView.as_view(), name='applicant_detail'),
     path('announcements/', Announcement.as_view(), name='announcements'),

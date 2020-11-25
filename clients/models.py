@@ -43,7 +43,7 @@ class Document(models.Model):
         return reverse('clients:clients_list')
 
 class Note(models.Model):
-    client = models.ManyToManyField(Client, related_name='notes')
+    client = models.ForeignKey(Client,on_delete=models.CASCADE, related_name='notes')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
     title = models.CharField(max_length=50)
     note = models.TextField(max_length=500)

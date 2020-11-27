@@ -51,6 +51,15 @@ class ClientDetailView(DetailView):
         return get_object_or_404(Client, id=id_)
 
 
+class NoteDetailView(DetailView):
+    template_name = "clients/note_detail.html"
+    model = Note
+
+    def get_object(self):
+        id_ = self.kwargs.get("id")
+        return get_object_or_404(Note, id=id_)
+
+
 class ClientUpdateView(UpdateView):
     model = Client
     fields = ['first_name','last_name','address','phone',

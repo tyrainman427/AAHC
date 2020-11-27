@@ -82,8 +82,8 @@
         {% for note in client.notes.all %}
         <tr>
 
-          <td><a style="color:black" href="{% url 'clients:file_detail' note.id %}">{{note.title}}</a></td>
-          <td><a style="color:black" href="{% url 'clients:file_detail' note.id %}">{{note.note}}</a></td>
+          <td><a style="color:black" href="{% url 'clients:note_detail' note.id %}">{{note.title}}</a></td>
+          <td><a style="color:black" href="{% url 'clients:note_detail' note.id %}">{{note.note}}</a></td>
         </a>
         </tr>
         {% endfor %}

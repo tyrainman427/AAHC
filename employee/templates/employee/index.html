@@ -40,7 +40,11 @@
     <div class="card-header">New Applications</div>
     <div class="card-body">
       <h5 class="card-title"></h5>
+      {% if client %}
       <p class="card-text" style="font-size:4rem;">{{applicants.count}}</p>
+      {% else %}
+      <p class="card-text" style="font-size:4rem;">0</p>
+      {% endif %}
     </div>
   </div>
       </div>

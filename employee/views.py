@@ -1,4 +1,5 @@
 from .models import *
+from clients.models import *
 from django.shortcuts import get_object_or_404,redirect, render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import AnnouncementForm,CustomUserCreationForm
@@ -25,8 +26,10 @@ class CalendarView(generic.ListView):
         cal = Calendar(d.year, d.month)
         html_cal = cal.formatmonth(withyear=True)
         context['calendar'] = mark_safe(html_cal)
+        print("D", d.month)
         context['prev_month'] = prev_month(d)
         context['next_month'] = next_month(d)
+        print("Prev month: ",context['prev_month'], context['next_month'])
         return context
 
 def get_date(req_day):
@@ -64,8 +67,14 @@ def event(request, event_id=None):
 @method_decorator(login_required, name='dispatch')
 class Portal(ListView):
     model = Employee
-    queryset = Employee.objects.all()
     template_name = 'employee/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(Portal, self).get_context_data(**kwargs)
+
+        context['client'] = Client.objects.all()
+        context['applicants'] = Employee.objects.filter(is_active=False)
+        return context
 
 @method_decorator(login_required, name='dispatch')
 class Announcement(ListView):

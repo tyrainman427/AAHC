@@ -35,9 +35,9 @@
       <p><strong>Expected Rate:</strong>{{employee.expected_rate }}</p>
       <p><strong>Expected Weekly Rate:</strong>{{employee.expect_weekly_rate }}</p>
       <p><strong>Date Available:</strong>{{employee.date_available}}</p>
-      <p><strong>Resume:</strong>{{employee.resume }}</p>
-      <p><strong>Social Security:</strong>{{employee.social_security }}</p>
-      <p><strong>Government ID:</strong>{{employee.gov_id }}</p>
+      <p><strong>Resume:</strong>{{employee.resume.url }}</p>
+      <p><strong>Social Security:</strong>{{employee.social_security.url }}</p>
+      <p><strong>Government ID:</strong><a href="{{employee.gov_id.url }}">{{employee.gov_id }}</a></p>
     </div>
 
     <div class="col-md-4">

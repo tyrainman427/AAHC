@@ -101,8 +101,8 @@ color: #17a2b8;
 </style>
 
 <div class="clearfix">
-	<a class="btn btn-info left" href="{'% url 'employee:calendar' %}?{'{ prev_month }}"> Previous Month </a>
-	<a class="btn btn-info right" href="{'% url 'employee:calendar' %}?{'{ next_month }}"> Next Month </a>
+	<a class="btn btn-info left" href="{'% url 'employee:calendar' %}?{{ prev_month }}"> Previous Month </a>
+	<a class="btn btn-info right" href="{'% url 'employee:calendar' %}?{{ next_month }}"> Next Month </a>
   <a class="btn btn-info right" href="{% url 'employee:event_new' %}"> New Event </a>
 
 </div>
